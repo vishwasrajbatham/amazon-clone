@@ -1,16 +1,33 @@
 import './App.css';
 import "./App.css";
 import Header from "./Header.js";
+import Home from "./Home.js";
+import Checkout from './Checkout';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 function App() {
   return (
-    //BEM
-    <div className="app">
-      <header className="App-header">
-        <h1>Hey everyone ! I am building an amazon clone website</h1>
+    <Router>
+      <div className="app">
+        <header className="App-header">
         <Header />
-        {/*Home */}
-      </header>
-    </div>
+          <Switch>
+
+            <Route path='/checkout'>
+
+              <Checkout />
+
+            </Route>
+            
+            <Route path='/'>  {/*default route should be at the botom */}
+
+              <Home />
+            
+            </Route>
+
+          </Switch>
+        </header>
+      </div>
+      </Router>
   );
 }
 
